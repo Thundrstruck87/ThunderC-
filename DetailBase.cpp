@@ -4,15 +4,28 @@
 #include <iostream>
 using namespace std;
 
-// variables for int main() //
+// variables //
+
 int option;
-//-----------//
+string FirstName;
+string LastName;
+string Vehicle;
+string anothercustomer;
+string anothervehicle;
+string anotherlookup;
 
 
+// Function Declarations //
+void NewCustomer();
+void NewVehicle(); 
+void LookUp(); 
+int Year;
+
+// --- Main Code --- //
 
 int main()
 {
-  cout << "Welcome to detailbase 1.0 \n";
+  cout << "\nWelcome to detailbase 1.0 \n";
   cout << "Please select an option. \n\n";
 
   cout << "1. Add New Customer \n";
@@ -21,34 +34,86 @@ int main()
   cout << "4. Create A Detail Entry\n\n";
 
   cin >> option;
+
+  if(option == 1)
+  {
+    NewCustomer();
+  }  
+  else if(option == 2)
+  {
+    NewVehicle();
+  }
+  else if(option == 3)
+  {
+    LookUp();
+  }
 }
 
 void NewCustomer()
 {
-  if(option == 1)
+  cout << "\nFirst Name: ";
+  cin >> FirstName;
+  cout << "Last Name: ";
+  cin >> LastName;
+  cout << "Vehicle (example: Dodge Charger RT): ";
+  cin >> Vehicle;
+  cout << "Year: ";
+  cin >> Year;
+    
+  cout << "\n\n Thanks! " << FirstName << " " << LastName << " has been added!";
+  cout << "\n\n Would you like to add another? (yes/no): ";
+  cin >> anothercustomer;
+
+  if(anothercustomer == "yes")
   {
-    string FirstName;
-    string LastName;
-    string vehicle;
-    string anothercustomer;
-    int year;
-
-    cout << "First Name: ";
-    cin >> FirstName;
-    cout << "Last Name: ";
-    cin >> LastName;
-    cout << "Vehicle (example: Dodge Charger RT): ";
-    cin >> vehicle;
-    cout << "Year: ";
-    cin >> year;
-    
-    cout << "\n\n Thanks! " << FirstName << " " << LastName << " has been added!";
-    cout << "\n\n Would you like to add another? (y/n): ";
-    cin >> anothercustomer;
-
-    if (anothercustomer == "y")
     NewCustomer();
+  }
+  else if(anothercustomer == "no")
+  {
+    main();
+  }
+}
 
-    
+void NewVehicle()
+{
+ cout << "Who is this for? (first name) \n";
+ cin >> FirstName;
+ cout << "Last name: ";
+ cin >> LastName;
+ cout << "Vehicle (example: Dodge Charger RT): ";
+ cin >> Vehicle;
+ cout << "Year?: ";
+ cin >> Year;
+ cout << "Thanks! " << Vehicle << "for " << FirstName << LastName << "has been added!";
+ cout << "\nWould you like to add another? ";
+ cin >> anothervehicle;
+
+ if(anothervehicle == "y")
+ {
+   NewVehicle();
+ }
+ else if(anothervehicle == "n")
+ {
+   main();
+ }
+}
+
+void LookUp()
+{
+  cout << "What is the customers first name? ";
+  cin >> FirstName;
+  cout << "What is their last name? ";
+  cin >> LastName;
+  cout << "Thanks, let me pull up their info: ";
+  cout << FirstName << LastName << Year << Vehicle;
+  cout << "Would you like to pull up another? ";
+  cin >> anotherlookup;
+  if (anotherlookup == "y")
+  {
+    LookUp();
+  }
+  else if (anotherlookup == "n")
+  {
+    main();
   }
 }
