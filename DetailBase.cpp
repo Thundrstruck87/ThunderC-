@@ -4,13 +4,10 @@
 #include <iostream>
 using namespace std;
 
-// variables //
-string FirstName;
-string LastName;
-string vehicle;
-int year;
+// variables for int main() //
 int option;
 //-----------//
+
 
 
 int main()
@@ -24,9 +21,18 @@ int main()
   cout << "4. Create A Detail Entry\n\n";
 
   cin >> option;
+}
 
+void NewCustomer()
+{
   if(option == 1)
   {
+    string FirstName;
+    string LastName;
+    string vehicle;
+    string anothercustomer;
+    int year;
+
     cout << "First Name: ";
     cin >> FirstName;
     cout << "Last Name: ";
@@ -37,6 +43,12 @@ int main()
     cin >> year;
     
     cout << "\n\n Thanks! " << FirstName << " " << LastName << " has been added!";
-  }
+    cout << "\n\n Would you like to add another? (y/n): ";
+    cin >> anothercustomer;
 
+    if (anothercustomer == "y")
+    NewCustomer();
+
+    
+  }
 }
