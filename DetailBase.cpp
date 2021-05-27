@@ -1,12 +1,17 @@
+/* This program is a customer database (v1.0) to be used for automotive detailing. Program is still being worked on and updated.
+*/
+
 #include <iostream>
 using namespace std;
 
+// variables //
 string FirstName;
 string LastName;
 string vehicle;
 int year;
-
 int option;
+//-----------//
+
 
 int main()
 {
