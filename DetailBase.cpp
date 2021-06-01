@@ -10,9 +10,13 @@ int option;
 string FirstName;
 string LastName;
 string Vehicle;
+float Price;
+float Labor;
+string DetailWork;
 string anothercustomer;
 string anothervehicle;
 string anotherlookup;
+
 
 
 // Function Declarations //
@@ -20,6 +24,7 @@ void NewCustomer();
 void NewVehicle(); 
 void LookUp(); 
 int Year;
+void NewEntry();
 
 // --- Main Code --- //
 
@@ -85,16 +90,20 @@ void NewVehicle()
  cout << "Year?: ";
  cin >> Year;
  cout << "Thanks! " << Vehicle << "for " << FirstName << LastName << "has been added!";
- cout << "\nWould you like to add another? ";
+ cout << "\nWould you like to add another? (yes/no)";
  cin >> anothervehicle;
 
- if(anothervehicle == "y")
+ if(anothervehicle == "yes")
  {
    NewVehicle();
  }
- else if(anothervehicle == "n")
+ else if(anothervehicle == "no")
  {
    main();
+ }
+ else
+ {
+   cout << "Sorry, please try again!";
  }
 }
 
@@ -106,14 +115,33 @@ void LookUp()
   cin >> LastName;
   cout << "Thanks, let me pull up their info: ";
   cout << FirstName << LastName << Year << Vehicle;
-  cout << "Would you like to pull up another? ";
+  cout << "Would you like to pull up another? (yes/no)";
   cin >> anotherlookup;
-  if (anotherlookup == "y")
+  if (anotherlookup == "yes")
   {
     LookUp();
   }
-  else if (anotherlookup == "n")
+  else if (anotherlookup == "no")
   {
     main();
   }
+}
+
+void NewEntry()
+{
+  cout << "You will be creating a detailing entry";
+  cout << "\n\nWho is this for? (first name): ";
+  cin >> FirstName;
+  cout << "\n\nTheir last name please: ";
+  cin >> LastName;
+  cout << "\n\nWhich Vehicle is this for? ";
+  cin >> Vehicle;
+  cout << "What is the year? ";
+  cin >> Year;
+  cout << "\n\nWork performed: ";
+  cin >> DetailWork;
+  cout << "\nApprox price for job: ";
+  cin >> Price;
+  cout << "\nHours of work: ";
+  cin >> Labor;
 }
