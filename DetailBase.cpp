@@ -2,11 +2,11 @@
 */
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 // variables //
 int option;
-int Year;
 float Price;
 float Labor;
 string FirstName;
@@ -16,6 +16,11 @@ string DetailWork;
 string anothercustomer;
 string anothervehicle;
 string anotherlookup;
+string Year; //Not used
+string tmpStrYear; // This replaces the int Year variable //
+
+
+// Conversions //
 
 // Function Declarations //
 void NewCustomer();
@@ -27,27 +32,35 @@ void NewEntry();
 
 int main()
 {
-    cout << "\nWelcome to detailbase 1.0 \n";
-    cout << "Please select an option. \n\n";
+    system("clear");
+    cout << "\nWelcome to detailbase 1.0";
+    cout << "\nPlease select an option.\n";
 
-    cout << "1. Add New Customer \n";
-    cout << "2. Add New Vehicle \n";
-    cout << "3. Look Up Customer \n";
-    cout << "4. Create A Detail Entry\n\n";
+    cout << "\n1. Add New Customer";
+    cout << "\n2. Add New Vehicle";
+    cout << "\n3. Look Up Customer";
+    cout << "\n4. Create A Detail Entry";
+    cout << "\n5. Exit\n\n";
 
     cin >> option;
 
     if (option == 1)
     {
-        NewCustomer();
+      NewCustomer();
     }
     else if (option == 2)
     {
-        NewVehicle();
+      NewVehicle();
     }
     else if (option == 3)
     {
-        LookUp();
+      LookUp();
+    }
+    else if (option == 4)
+      NewEntry();
+    else if (option == 5)
+    {
+      exit(-1); //exits program
     }
 }
 
@@ -58,12 +71,14 @@ void NewCustomer()
     cout << "Last Name: ";
     cin >> LastName;
     cout << "Vehicle (example: Dodge Charger RT): ";
-    cin >> Vehicle;
+    cin.ignore();
+    getline(cin, Vehicle);
+    //cin >> Vehicle;
     cout << "Year: ";
-    cin >> Year;
-
-    cout << "\n\n Thanks! " << Vehicle << " for " << FirstName << " " << LastName << " has been added!";
-    cout << "\n\n Would you like to add another? (yes/no): ";
+    cin >> tmpStrYear;
+    // Year = stoi(tmpStrYear);
+    cout << "Thanks! " << Vehicle << " for " << FirstName << " " << LastName << " has been added!";
+    cout << "\nWould you like to add another? (yes/no): ";
     cin >> anothercustomer;
 
     if (anothercustomer == "yes")
@@ -73,6 +88,10 @@ void NewCustomer()
     else if (anothercustomer == "no")
     {
         main();
+    }
+    else
+    {
+      cout << "Please enter yes or no to continue";
     }
 }
 
@@ -125,17 +144,17 @@ void NewEntry()
     cout << "You will be creating a detailing entry";
     cout << "\n\nWho is this for? (first name): ";
     cin >> FirstName;
-    cout << "\n\nTheir last name please: ";
+    cout << "Their last name please: ";
     cin >> LastName;
-    cout << "\n\nWhich Vehicle is this for? ";
+    cout << "Which Vehicle is this for? ";
     cin >> Vehicle;
     cout << "What is the year? ";
-    cin >> Year;
-    cout << "\n\nWork performed: ";
-    cin >> DetailWork;
-    cout << "\nApprox price for job: ";
+    cin >> tmpStrYear;
+    cout << "Work performed: 
+    //cin >> DetailWork;
+    cout << "Approx price for job: ";
     cin >> Price;
-    cout << "\nHours of work: ";
+    cout << "Hours of work: ";
     cin >> Labor;
-    cout << "\nThe new detailing record has been added!";
+    cout << "The new detailing record has been added!";
 }
